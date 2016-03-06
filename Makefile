@@ -50,7 +50,7 @@ test: bin bin/test_scut
 bin/test_scut: test_scut.c scut.c 
 	$(CC) $(CFLAGS) -o $@ $^
 
-bin/example: lib example.c
+bin/example: bin lib example.c
 	cd obj && test -L $(SONAME) || ln -s $(REAL_NAME) $(SONAME)
 	cd obj && test -L $(LINK_NAME) || ln -s $(SONAME) $(LINK_NAME)
 	$(CC) $(CFLAGS) -o $@ example.c -L./obj -lscut
