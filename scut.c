@@ -197,7 +197,7 @@ int scut_run(int flags)
                         say(buf);
                 }
 
-                if (ret || (flags & SCUT_VERBOSE))
+                if ((ret || (flags & SCUT_VERBOSE)) && strlen(captured))
                 {
                         snprintf(buf, MAX_MSG, ">>> Captured output <<<\n\n");
                         say(buf);
