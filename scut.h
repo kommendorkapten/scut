@@ -15,17 +15,17 @@
 #define __SCUT_H__
 
 #define SCUT_ADD(m) scut_add(&m, #m)
-#define SCUT_FAIL(msg) do {printf("%s\n", msg); return 1;} while(0)
+#define SCUT_FAIL(msg) do {printf("%s: %s+%d\n", msg, __FILE__, __LINE__); return 1;} while(0)
 #define SCUT_ASSERT_IE(a, b) do {if((long)(a) != (long)(b)) {           \
-                        printf("Assertion error, found %ld, expected %ld\n", (long)(a), (long)(b)); \
+                        printf("Assertion error, found %ld, expected %ld: %s+%d\n", (long)(a), (long)(b), __FILE__, __LINE__); \
                         return 1;}} while (0)
 #define SCUT_ASSERT_TRUE(a) do {if(!(a)){                               \
-                        printf("Assertion failed, expected true\n");return 1;}} while(0)
+                        printf("Assertion failed, expected true: %s+%d\n", __FILE__, __LINE__);return 1;}} while(0)
 #define SCUT_ASSERT_FALSE(a) do {if((a)){                               \
-                        printf("Assertion failed, expected false\n");return 1;}} while(0)
+                        printf("Assertion failed, expected false: %s+%d\n", __FILE__, __LINE__);return 1;}} while(0)
 #define SCUT_EXPECT_SIG(s) scut_expect_sig((s))
 #define SCUT_ASSERT_SIG(s) do {if(!scut_assert_sig((s))){               \
-                        printf("Assertion error, signal %d was not caught\n", (s)); return 1;}} while(0)
+                        printf("Assertion error, signal %d was not caught: %s+%d\n", (s), __FILE__, __LINE__); return 1;}} while(0)
 
 #define SCUT_VERBOSE 0x1
 #define UNIT_TEST
