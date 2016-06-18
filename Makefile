@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS = -m64 
+CFLAGS=-m64 
 LFLAGS=
 DEBUG=1
 PREFIX=/usr/local
@@ -26,7 +26,7 @@ ifeq ($(CC), gcc)
 CFLAGS += -W -Wall -pedantic -std=c99 -fpic
 LFLAGS += -shared -Wl,-soname,$(SONAME)
 else ifeq ($(CC), c99)
-CFLAGS += -Kpic
+CFLAGS += -v -Kpic 
 LFLAGS += -G -Wl,-soname,$(SONAME)
 endif
 
