@@ -313,6 +313,11 @@ static char* drain(int fd)
         {
                 br = len - 1;
         }
+        if (br < 0)
+        {
+                br = 0;
+        }
+
         msg[br] = 0;
         return msg;
 }
