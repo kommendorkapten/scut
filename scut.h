@@ -14,6 +14,8 @@
 #ifndef __SCUT_H__
 #define __SCUT_H__
 
+#include <stdio.h>
+
 #define SCUT_ADD(m) scut_add(&m, #m)
 #define SCUT_FAIL(msg) do {printf("%s: %s+%d\n", msg, __FILE__, __LINE__); return 1;} while(0)
 #define SCUT_ASSERT_IE(a, b) do {if((long)(a) != (long)(b)) {           \
